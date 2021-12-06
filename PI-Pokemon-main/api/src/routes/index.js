@@ -62,6 +62,7 @@ router.get('/pokemons/:id', async(req, res) =>{
         if(Number.isInteger(idInt)){
             let pokemones = await pokemonsApi();
             let pokemon = pokemones.find(e => e.id == idInt)
+            if(pokemon) return res.json(pokemon)
         }else{
             let pokemon = await Pokemon.findByPk(id,{include: {
                 model: Tipo,
