@@ -75,10 +75,17 @@ router.get('/pokemons/:id', async(req, res) =>{
 })
 
 router.post('/pokemons', async (req, res) =>{
-    const {name, vida, fuerza, defensa, velocidad, altura, peso, img, type} = req.body
-    console.log('hola')
-    if(name&&vida&&fuerza&&defensa&&velocidad&&altura&&peso&&img&&type){
-        let [tipo, creada] = await Tipo.findOrCreate({where:{name: type}})
+    const {name, vida, fuerza, defensa, velocidad, altura, peso, img, types} = req.body
+
+    console.log(req.body);
+    
+    if(name&&vida&&fuerza&&defensa&&velocidad&&altura&&peso&&img&&types){
+        if(Array.isArray(types)){
+            var tipo = await Promise.all(types.map(async tipos => await Tipo.findAll({where:{name: tipos}})))
+            tipo = tipo.flat();
+        }else{
+            var [tipo, creada] = await Tipo.findOrCreate({where:{name: types}})
+        }
         let pokemon = await Pokemon.create({
             name, 
             vida, 
