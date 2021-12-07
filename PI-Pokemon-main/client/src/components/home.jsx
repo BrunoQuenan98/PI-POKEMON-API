@@ -16,6 +16,7 @@ export const Home = () =>{
         <Link to='/create'>
             <button>Crear Pokemon</button>
         </Link>
+        <input type='checkbox'/>
         <Cards/>
         </>
     )   
