@@ -1,7 +1,8 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { getTypes, selectType, postPokemon } from "../redux/actions/actions";
+import { getTypes, selectType} from "../redux/actions/actions";
 
 
 const validate = (input) =>{
@@ -75,9 +76,9 @@ export const Form = () =>{
         
     }
 
-     function handleSubmit(e){
+    async function handleSubmit(e){
         e.preventDefault();
-        dispatch(postPokemon(inputs))
+        await axios.post('http://localhost:3001/pokemons/', inputs)
         history("/home")
     }
 
