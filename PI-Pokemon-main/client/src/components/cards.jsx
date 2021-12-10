@@ -7,7 +7,7 @@ export const Cards = ({pokemones}) =>{
         <>
         
         {pokemones?.map(pokemon => {
-            return <Card id={pokemon.id} img={pokemon.img} name={pokemon.name} key={pokemon.name}/>
+            return <Card id={pokemon.id} img={pokemon.img} name={pokemon.name} key={pokemon.id}/>
         })}
         </>
     )

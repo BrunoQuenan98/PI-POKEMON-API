@@ -1,4 +1,4 @@
-import { GET_POKEMONES, GET_POKEMON_DETAIL, CLEAN_POKEMON_DETAIL, GET_TYPES, SELECT_TYPE, FILTER_POKEMON_TYPE, FILTER_POKEMON_ORIGIN } from "../actions/consts";
+import { GET_POKEMONES, GET_POKEMON_DETAIL, CLEAN_POKEMON_DETAIL, GET_TYPES, SELECT_TYPE, FILTER_POKEMON_TYPE, FILTER_POKEMON_ORIGIN, ORDER_BY_NAME, ORDER_BY_STRENGTH, CLEAN_FILTERS } from "../actions/consts";
 
 
 const initialState = {
@@ -28,6 +28,13 @@ export function rootReducer(state = initialState, action){
                 ...state,
                 pokemonDetail: action.payload
             }
+        case CLEAN_FILTERS:
+            return{
+                ...state,
+                pokemonesFilteredType : action.payload,
+                pokemonesFilteredOrigin : action.payload,
+                pokemonesFiltered : action.payload
+            }    
         case GET_TYPES:
             return{
                 ...state,
@@ -40,6 +47,7 @@ export function rootReducer(state = initialState, action){
             } 
         case FILTER_POKEMON_TYPE:
           
+            // eslint-disable-next-line array-callback-return
             let pokemonesByType = action.payload === 'todosTipo'? state.pokemones : state.pokemones.filter(pokemon =>{ 
                 if(pokemon.tipos){
                     let tipos = pokemon.tipos.map(tiposPokemonBd => tiposPokemonBd.name)
@@ -85,7 +93,57 @@ export function rootReducer(state = initialState, action){
                 ...state,
                 pokemonesFilteredOrigin : pokemonesByOrigin,
                 pokemonesFiltered : state.pokemonesFilteredType.length ? joinFilterss : pokemonesByOrigin,
+            }
+        case ORDER_BY_NAME:
+           
+            let pokemonesFilter = state.pokemonesFiltered?.sort(function (a, b) {
+            if (a.name.toLowerCase() < b.name.toLowerCase()) {
+                if(action.payload === 'asc'){
+                    return -1
+                }else{
+                    return 1
+                }
+            }
+            if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                if(action.payload === 'dsc'){
+                    return -1
+                }else{
+                    return 1
+                }
             }              
+            return 0;
+            });
+            let pokemones = state.pokemones?.sort(function (a, b) {
+                if (a.name.toLowerCase() < b.name.toLowerCase()) {
+                    if(action.payload === 'asc'){
+                        return -1
+                    }else{
+                        return 1
+                    }
+                }
+                if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                    if(action.payload === 'dsc'){
+                        return -1
+                    }else{
+                        return 1
+                    }
+                }       
+                return 0;
+                });
+                console.log(pokemonesFilter)
+            return {
+                ...state,
+                pokemonesFiltered: pokemonesFilter,
+                pokemones : pokemones
+            }
+            case ORDER_BY_STRENGTH:
+                let pokemons = state.pokemones.sort((a,b) => action.payload === 'asc' ? a.fuerza-b.fuerza : b.fuerza-a.fuerza);
+                let pokemonsFilter = state.pokemonesFiltered.sort((a,b) => action.payload === 'asc' ? a.fuerza-b.fuerza : b.fuerza-a.fuerza);
+            return {
+                ...state,
+                pokemonesFiltered: pokemonsFilter,
+                pokemones: pokemons
+            }                
         default: return state;    
     }
 }

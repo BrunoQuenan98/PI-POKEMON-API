@@ -1,5 +1,28 @@
-import { GET_POKEMONES, GET_POKEMON_DETAIL, CLEAN_POKEMON_DETAIL, GET_TYPES, SELECT_TYPE, FILTER_POKEMON_TYPE, FILTER_POKEMON_ORIGIN } from "./consts";
+import { GET_POKEMONES, GET_POKEMON_DETAIL, CLEAN_POKEMON_DETAIL, GET_TYPES, SELECT_TYPE, FILTER_POKEMON_TYPE, FILTER_POKEMON_ORIGIN, ORDER_BY_NAME, ORDER_BY_STRENGTH, CLEAN_FILTERS } from "./consts";
 import axios from 'axios';
+
+export function cleanFilters(){
+    return{
+        type:CLEAN_FILTERS,
+        payload:[]
+    }
+
+}
+
+export function orderByName(payload){
+    return{
+        type: ORDER_BY_NAME,
+        payload: payload
+    }
+}
+
+export function orderByStrength(payload){
+    return{
+        type: ORDER_BY_STRENGTH,
+        payload: payload
+    }
+}
+
 
 export function getPokemones(){
     return async function(dispatch){

@@ -10,7 +10,7 @@ export const Detail = () =>{
     const dispatch = useDispatch();
     const id = useParams();
 
-    console.log(id.id);
+  
 
     useEffect(()=>{
         dispatch(getPokemonDetail(id.id))
@@ -19,8 +19,13 @@ export const Detail = () =>{
 
 
     const detail = useSelector(state => state.pokemonDetail);
-    console.log(detail);
-
+    
+    let tipos = []
+    if(detail.type){ 
+     tipos = detail.type.map((tipo, i) => <h5 key={i}>{tipo}</h5>) 
+    }else if(detail.tipos){
+    tipos = detail.tipos.map(tipo => <h5 key={tipo.id}>{tipo.name}</h5>)
+    }
     return(
         <div>
             <h1>{detail?.name}</h1>
@@ -32,10 +37,10 @@ export const Detail = () =>{
             <h5>Defensa:{detail?.defensa}</h5>
             <h5>Velocidad:{detail?.velocidad}</h5>
             <h3>Dimensions</h3>
-            <h5>{detail?.altura}</h5>
-            <h5>{detail?.peso}</h5>
+            <h5>Altura:{detail?.altura}</h5>
+            <h5>Peso:{detail?.peso}</h5>
             <h3>Tipo</h3>
-            {detail?.type?.map((tipo, i) => <h5 key={i}>{tipo}</h5>)}
+            {tipos}
             </div>
         </div>
     )

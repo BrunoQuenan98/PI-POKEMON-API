@@ -11,28 +11,42 @@ const validate = (input) =>{
         errors.name = 'Name required'
     }
     if(!input.vida) {
-        errors.vida = 'Vida required'
+        errors.vida = 'Field required'
+    }else if(isNaN(input.vida)){
+        errors.vida = 'Debe ingresar unicamente numeros'
     }
     if(!input.fuerza) {
-        errors.fuerza = 'Fuerza required'
+        errors.fuerza = 'Field required'
+    }else if(isNaN(input.fuerza)){
+        errors.fuerza = 'Debe ingresar unicamente numeros'
     }
     if(!input.defensa) {
-        errors.defensa = 'Defensa required'
+        errors.defensa = 'Field required'
+    }else if(isNaN(input.defensa)){
+        errors.defensa = 'Debe ingresar unicamente numeros'
     }
     if(!input.velocidad) {
-        errors.velocidad = 'Velocidad required'
+        errors.velocidad = 'Field required'
+    }else if(isNaN(input.velocidad)){
+        errors.velocidad = 'Debe ingresar unicamente numeros'
     }
     if(!input.altura) {
-        errors.altura = 'Altura required'
+        errors.altura = 'Field required'
+    }else if(isNaN(input.altura.split(',').join(''))){
+        errors.altura = 'Debe ingresar unicamente numeros'
     }
     if(!input.peso) {
-        errors.peso = 'Peso required'
+        errors.peso = 'Field required'
+    }else if(isNaN(input.peso.split(',').join(''))){
+        errors.peso = 'Debe ingresar unicamente numeros'
     }
     if(!input.img) {
-        errors.img = 'Img required'
+        errors.img = 'Field required'
+    }else if(!input.img.includes('http') && !input.img.includes('https')){
+        errors.img = 'Debe ingresar una url valida'
     }
     if(!input.types) {
-        errors.types = 'Types required'
+        errors.types = 'Select at least one type'
     }
     return errors
 }
@@ -64,7 +78,7 @@ export const Form = () =>{
 
     function handleChange(e){
     
-        if(e.target.name == 'types'){
+        if(e.target.name === 'types'){
         if(!types?.includes(e.target.value)){
             dispatch(selectType(e.target.value))
             setInputs({...inputs, types:[...inputs.types, e.target.value]})
@@ -86,37 +100,39 @@ export const Form = () =>{
     return(
         <div>
             <form onSubmit={(e)=>handleSubmit(e)}>
-                <label >Name</label>
-                <input type='text' name="name" onChange={(e)=>handleChange(e)}/>
+                <label>Nombre</label>
+                <input type='text' name="name" placeholder="ej: Pikachu" onChange={(e)=>handleChange(e)}/>
                 {errors.name&&<span style={{color: 'red'}}>{errors.name}</span>}
-                <label >Vida</label>
-                <input type='number' name="vida" onChange={(e)=>handleChange(e)}/>
+                <label>Puntos de Vida</label>
+                <input type='text' name="vida" placeholder='ej: 75'onChange={(e)=>handleChange(e)}/>
                 {errors.vida&&<span style={{color: 'red'}}>{errors.vida}</span>}
-                <label >Fuerza</label>
-                <input type='number' name="fuerza" onChange={(e)=>handleChange(e)}/>
+                <label >Puntos de Fuerza</label>
+                <input type='text' name="fuerza" placeholder='ej: 75' onChange={(e)=>handleChange(e)}/>
                 {errors.fuerza&&<span style={{color: 'red'}}>{errors.fuerza}</span>}
-                <label >Defensa</label>
-                <input type='number' name="defensa" onChange={(e)=>handleChange(e)}/>
+                <label >Puntos de Defensa</label>
+                <input type='text' name="defensa" placeholder='ej: 75' onChange={(e)=>handleChange(e)}/>
                 {errors.defensa&&<span style={{color: 'red'}}>{errors.defensa}</span>}
-                <label >Altura</label>
-                <input type='number' name="altura" onChange={(e)=>handleChange(e)}/>
-                {errors.altura&&<span style={{color: 'red'}}>{errors.altura}</span>}
-                <label >Peso</label>
-                <input type="number" name="peso" onChange={(e)=>handleChange(e)}/>
-                {errors.peso&&<span style={{color: 'red'}}>{errors.peso}</span>}
-                <label >Velocidad</label>
-                <input type="number" name="velocidad" onChange={(e)=>handleChange(e)}/>
+                <label>Puntos de Velocidad</label>
+                <input type='text' name="velocidad" placeholder='ej: 75' onChange={(e)=>handleChange(e)}/>
                 {errors.velocidad&&<span style={{color: 'red'}}>{errors.velocidad}</span>}
+                <label >Altura</label>
+                <input type='text' name="altura" placeholder='ej: 1,80' onChange={(e)=>handleChange(e)}/>
+                {errors.altura&&<span style={{color: 'red'}}>{errors.altura}</span>}
+                <label>Peso</label>
+                <input type='text' name="peso" placeholder='ej: 75' onChange={(e)=>handleChange(e)}/>
+                {errors.peso&&<span style={{color: 'red'}}>{errors.peso}</span>}
                 <label >Url Imagen</label>
-                <input type="url" name="img" onChange={(e)=>handleChange(e)}/>
+                <input type='text' name="img" placeholder="ej: http://www.imagen.com" onChange={(e)=>handleChange(e)}/>
                 {errors.img&&<span style={{color: 'red'}}>{errors.img}</span>}
                 <select name="types" id="types" onChange={(e) => handleChange(e)}>
                     <option defaultValue={true}>Seleccione Tipo</option>
                 {types.map(tipo => <option value={tipo.name} key={tipo.id}>{tipo.name}</option>)}    
                 </select>
                 {errors.types&&<span style={{color: 'red'}}>{errors.types}</span>}
-                {Object.values(errors).join('') == false?<input type="submit" disabled={false}/> : <input type="submit" disabled={true}/>}
-                
+        {
+                // eslint-disable-next-line eqeqeq
+        }{Object.values(errors).join('') == false?<input type="submit" disabled={false}/> : <input type="submit" disabled={true}/>}
+        
                 
             </form>
 
