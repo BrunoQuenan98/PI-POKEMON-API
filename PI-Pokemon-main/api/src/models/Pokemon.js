@@ -15,22 +15,22 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     vida:{
-      type:DataTypes.DOUBLE
+      type:DataTypes.STRING
     },
     fuerza:{
-      type:DataTypes.DOUBLE
+      type:DataTypes.STRING
     },
     defensa:{
-      type:DataTypes.DOUBLE
+      type:DataTypes.STRING
     },
     velocidad:{
-      type:DataTypes.DOUBLE
+      type:DataTypes.STRING
     },
     altura:{
-      type:DataTypes.DOUBLE
+      type:DataTypes.STRING
     },
     peso:{
-      type:DataTypes.DOUBLE
+      type:DataTypes.STRING
     },
     img:{
       type:DataTypes.STRING

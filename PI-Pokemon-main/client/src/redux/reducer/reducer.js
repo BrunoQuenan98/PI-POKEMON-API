@@ -1,4 +1,4 @@
-import { GET_POKEMONES, GET_POKEMON_DETAIL, CLEAN_POKEMON_DETAIL, GET_TYPES, SELECT_TYPE, FILTER_POKEMON_TYPE, FILTER_POKEMON_ORIGIN, ORDER_BY_NAME, ORDER_BY_STRENGTH, CLEAN_FILTERS } from "../actions/consts";
+import { GET_POKEMONES, GET_POKEMON_DETAIL, CLEAN_POKEMON_DETAIL, GET_TYPES, SELECT_TYPE, FILTER_POKEMON_TYPE, FILTER_POKEMON_ORIGIN, ORDER_BY_NAME, ORDER_BY_STRENGTH, CLEAN_FILTERS, SEARCH_POKEMON, CLEAN_SEARCH_POKEMON } from "../actions/consts";
 
 
 const initialState = {
@@ -7,7 +7,8 @@ const initialState = {
     types: [],
     pokemonesFilteredType : [],
     pokemonesFilteredOrigin : [],
-    pokemonesFiltered : []
+    pokemonesFiltered : [],
+    pokemonesSearch : [],
 }
 
 
@@ -143,7 +144,17 @@ export function rootReducer(state = initialState, action){
                 ...state,
                 pokemonesFiltered: pokemonsFilter,
                 pokemones: pokemons
-            }                
+            }
+        case SEARCH_POKEMON:
+            return{
+                ...state,
+                pokemonesSearch : [action.payload]
+            }
+        case CLEAN_SEARCH_POKEMON:
+            return{
+                ...state,
+                pokemonesSearch : action.payload
+            }                        
         default: return state;    
     }
 }

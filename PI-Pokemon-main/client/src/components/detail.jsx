@@ -1,8 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import { getPokemonDetail, cleanPokemonDetail } from "../redux/actions/actions";
-
+import { Loader } from "./loader";
 
 export const Detail = () =>{
 
@@ -28,6 +29,7 @@ export const Detail = () =>{
     }
     return(
         <div>
+            {tipos.length > 0 ? <>
             <h1>{detail?.name}</h1>
             <img src={detail?.img} alt='img pokemon'/>
             <div>
@@ -42,6 +44,10 @@ export const Detail = () =>{
             <h3>Tipo</h3>
             {tipos}
             </div>
+            </> : <Loader/>}
+            <Link to='/home'>
+                <span>Volver al Home</span>
+            </Link>
         </div>
     )
 

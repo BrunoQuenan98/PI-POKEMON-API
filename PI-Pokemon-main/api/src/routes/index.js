@@ -34,16 +34,44 @@ async function pokemonsApi(){
 
 router.get('/pokemons', async (req, res)=>{
     const { name } = req.query;
-    let pokemones =  await pokemonsApi();
-    pokemones = pokemones.concat( await Pokemon.findAll({include: {
-        model: Tipo,
-       }}));
 
-    name?res.json(pokemones.filter(pokemon => pokemon.name == name)):res.json(pokemones)
+    if(name){
+        try{
+        let pokemon = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
+        pokemon = {
+            id: pokemon.data.id,
+            name : pokemon.data.name,
+            vida : pokemon.data.stats[0].base_stat,
+            fuerza : pokemon.data.stats[1].base_stat,
+            defensa :pokemon.data.stats[2].base_stat,
+            velocidad : pokemon.data.stats[5].base_stat,
+            altura :pokemon.data.height,
+            peso :pokemon.data.weight,
+            img : pokemon.data.sprites.front_default,
+            type : pokemon.data.types.map(tipo => tipo.type.name),
+        }
+        return res.json(pokemon)
+    }catch(e){
+        return res.json('NOMBRE INVALIDO')
+    }
+        
+    }else{
+        let pokemones =  await pokemonsApi();
+        pokemones = pokemones.concat( await Pokemon.findAll({include: {
+            model: Tipo,
+           }}));
+        res.json(pokemones);   
+    }
+
+
+   
+
+   // name?res.json(pokemones.filter(pokemon => pokemon.name == name)):res.json(pokemones)
        
 })
 
 router.get('/types', async(req,res) =>{
+
     let types = await Tipo.findAll();
     if(types.length > 0) return res.json(types);
     let typesApi = await axios.get('https://pokeapi.co/api/v2/type');
@@ -51,8 +79,9 @@ router.get('/types', async(req,res) =>{
          let tipe = await Tipo.create({name:tipo.name})
          return tipe;
     }));
-    
+
     return res.json(typesApi);
+
 })
 
 router.get('/pokemons/:id', async(req, res) =>{

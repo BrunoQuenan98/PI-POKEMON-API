@@ -1,4 +1,4 @@
-import { GET_POKEMONES, GET_POKEMON_DETAIL, CLEAN_POKEMON_DETAIL, GET_TYPES, SELECT_TYPE, FILTER_POKEMON_TYPE, FILTER_POKEMON_ORIGIN, ORDER_BY_NAME, ORDER_BY_STRENGTH, CLEAN_FILTERS } from "./consts";
+import { GET_POKEMONES, GET_POKEMON_DETAIL, CLEAN_POKEMON_DETAIL, GET_TYPES, SELECT_TYPE, FILTER_POKEMON_TYPE, FILTER_POKEMON_ORIGIN, ORDER_BY_NAME, ORDER_BY_STRENGTH, CLEAN_FILTERS, SEARCH_POKEMON, CLEAN_SEARCH_POKEMON } from "./consts";
 import axios from 'axios';
 
 export function cleanFilters(){
@@ -7,6 +7,24 @@ export function cleanFilters(){
         payload:[]
     }
 
+}
+
+export function cleanSearchPokemon(){
+    return{
+        type:CLEAN_SEARCH_POKEMON,
+        payload:[]
+    }
+
+}
+
+export function searchPokemon(payload){
+    return async function(dispatch){
+        let json = await axios.get(`http://localhost:3001/pokemons?name=${payload}`)
+        return dispatch({
+            type: SEARCH_POKEMON,
+            payload: json.data
+        })
+    }
 }
 
 export function orderByName(payload){
