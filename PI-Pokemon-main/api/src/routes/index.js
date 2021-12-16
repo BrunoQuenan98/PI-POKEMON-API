@@ -9,6 +9,7 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 
 async function pokemonsApi(){
+    try{
     let PokemonsApi = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=40');
     let pokemones = PokemonsApi.data.results
     pokemones = await Promise.all(pokemones.map (async (pokemon) =>{
@@ -30,6 +31,9 @@ async function pokemonsApi(){
     )
 
     return pokemones;
+    }catch(e){
+        console.error(e);
+    }
 }
 
 router.get('/pokemons', async (req, res)=>{
@@ -72,6 +76,7 @@ router.get('/pokemons', async (req, res)=>{
 
 router.get('/types', async(req,res) =>{
 
+    try{
     let types = await Tipo.findAll();
     if(types.length > 0) return res.json(types);
     let typesApi = await axios.get('https://pokeapi.co/api/v2/type');
@@ -81,11 +86,14 @@ router.get('/types', async(req,res) =>{
     }));
 
     return res.json(typesApi);
-
+    }catch(e){
+        return res.status(400).json('ups algo ha sucedido mal');
+    }
 })
 
 router.get('/pokemons/:id', async(req, res) =>{
     const { id } = req.params;
+    try{
     if(id){
         let idInt = Number(id);
         if(Number.isInteger(idInt)){
@@ -101,13 +109,16 @@ router.get('/pokemons/:id', async(req, res) =>{
        
         return res.status(404).json('EL ID INGRESADO NO COINCIDE CON NINGUN POKEMON')
     }
+    }catch(e){
+         return res.status(400).json('ups algo ha sucedido mal');
+    }
 })
 
 router.post('/pokemons', async (req, res) =>{
     const {name, vida, fuerza, defensa, velocidad, altura, peso, img, types} = req.body
 
     console.log(req.body);
-    
+    try{
     if(name&&vida&&fuerza&&defensa&&velocidad&&altura&&peso&&img&&types){
         if(Array.isArray(types)){
             var tipo = await Promise.all(types.map(async tipos => await Tipo.findAll({where:{name: tipos}})))
@@ -128,7 +139,9 @@ router.post('/pokemons', async (req, res) =>{
         await pokemon.setTipos(tipo);
         return res.json(pokemon);
     }
-    return res.status(400).json('ups algo ha sucedido mal');
+    }catch(e){
+        return res.status(400).json('ups algo ha sucedido mal');
+    }
     
 })
 

@@ -6,6 +6,7 @@ import { Cards } from "./cards.jsx";
 import { Loader } from "./loader.jsx";
 import { Paginado } from "./paginado.jsx";
 import { SearchBar } from "./searchBar.jsx";
+import s from "./home.module.css";
 export const Home = () =>{
 
     const dispatch = useDispatch();
@@ -92,7 +93,7 @@ export const Home = () =>{
         
         if(filter === true && pokemonesFiltered.length === 0){
             return(<>
-            <span style={{color : 'red'}}>No se han encontrado pokemones con los filtros seleccionados</span>
+            <span className={s.noEncontrados}>No se han encontrado pokemones con los filtros seleccionados</span>
             <Paginado pokemonsPerPage={pokemonsPerPage} allPokemons={allPokemons.length} paginado={paginado}/>
             <Cards pokemones={currentPokemon}/>
             </>)
@@ -104,7 +105,7 @@ export const Home = () =>{
         }else if(pokemonesSearch.length > 0 && typeof(pokemonesSearch[0]) == 'string'){
             return(<>
             <Paginado pokemonsPerPage={pokemonsPerPage} allPokemons={allPokemons.length-9} paginado={paginado}/>
-                  <span style={{color : 'red'}}>No se han encontrado pokemones con el nombre ingresado</span>
+                  <span className={s.noEncontrados}>No se han encontrado pokemones con el nombre ingresado</span>
                 <Cards pokemones={currentPokemon}/>
                 </>)
         }else if(pokemonesSearch.length > 0 && typeof(pokemonesSearch[0]) !== 'string'){
@@ -123,34 +124,53 @@ export const Home = () =>{
     return(
         <>
         {pokemones.length > 0 ? <>
+        <nav className={s.nav}>
+        <Link to='/home' className={s.linkHome}>
+        <span>Home</span> 
+        </Link>   
         <SearchBar setFilter={setFilter}/>
-        <Link to='/create'>
-            <button>Crear Pokemon</button>
-        </Link>
+        </nav>
+        
+        <div className={s.conteiner}>
+        <form onSubmit={(e) => handleFilter(e)} className={s.filtrosConteiner}>
+            <div>
         <label>Filtrar por Origen:</label>
-        <form onSubmit={(e) => handleFilter(e)}>
-        <select name="origen" id="origen">
-            <option value='todos'>Todos</option>
-            <option value='api'>Pokemones API</option>
-            <option value='bd'>Pokemones BD</option>
+        <select name="origen" id="origen" className={s.select}>
+            <option value='todos' className={s.option}>Todos</option>
+            <option value='api' className={s.option}>Pokemones API</option>
+            <option value='bd' className={s.option}>Pokemones BD</option>
         </select>
+        </div>
+        <div>
         <label>Filtrar por Tipo:</label>
         <select name="type" id="type">
             <option value='todosTipo'>Todos</option>
             {types?.map(tipo => <option value={tipo.name} key={tipo.id}>{tipo.name}</option>)}
         </select>
-        <input type='submit' value='filtrar'/>
+        </div>
+        <input type='submit' value='Filtrar' className={s.btn}/>
         </form>
-        <label>Ordenar por Fuerza:</label>
-        <select name="fuerza" id="fuerza" onChange={(e) => handleOrderStrength(e)}>
-            <option value='asc'>Ascendente</option>
-            <option value='dsc'>Descendente</option>
-        </select>
-        <label>Ordenar por Nombre:</label>
-        <select name="nombre" id="nombre" onChange={(e) => handleOrderName(e)}>
-            <option value='asc'>Ascendente</option>
-            <option value='dsc'>Descendente</option>
-        </select>
+        <div className={s.ordenConteiner}>
+            <div>
+                <label>Ordenar por Fuerza:</label>
+                <select name="fuerza" id="fuerza" onChange={(e) => handleOrderStrength(e)}>
+                    <option value='asc'>Ascendente</option>
+                    <option value='dsc'>Descendente</option>
+                </select>
+            </div>
+            <div>
+                <label>Ordenar por Nombre:</label>
+                <select name="nombre" id="nombre" onChange={(e) => handleOrderName(e)}>
+                    <option value='asc'>Ascendente</option>
+                    <option value='dsc'>Descendente</option>
+                </select>
+            </div>
+        </div>
+        </div>
+        <Link to='/create' className={s.linkCrearPokemon}>
+            <button className={s.crearPokemon}>Crear Pokemon</button>
+        </Link>
+        
         {validatePokemonsForCards()}
         </> : <Loader/>}
         

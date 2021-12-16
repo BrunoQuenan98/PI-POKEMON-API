@@ -1,0 +1,25 @@
+.imgFondo{
+    width: auto;
+    height: auto;
+    max-width: 500px;
+    display: block;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.btn{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    padding: 20px 200px 20px 200px;
+    background-color: rgb(238, 255, 0);
+    border: solid 4px rgb(2, 89, 250);
+    border-radius: 10px;
+    cursor: pointer;
+}
+.btn:hover{
+    transition: 1s;
+    color: rgb(250, 235, 29);
+    background-color: rgb(255, 242, 206);
+}

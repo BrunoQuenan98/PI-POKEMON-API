@@ -1,0 +1,290 @@
+
+.imgDiv{
+    background-image:linear-gradient(to bottom, #7D1935, white ) ;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nameTypeCont{
+    font-family: 'Nunito', sans-serif;
+}
+.linkName{
+    color: #E63E6D;
+    text-decoration: none;
+}
+.name:hover{
+    color: #7D1935;
+    text-shadow: 1px 1px 10px #7D1935, 1px 1px 25px #7D1935,1px 1px 35px #7D1935;
+}
+.fire:hover, .mixto:hover, .dragon:hover, .dark:hover, .fairy:hover, .unknown:hover, .steel:hover, .ghost:hover, .electric:hover, .psychic:hover, .ice:hover, .flying:hover .ground:hover, .rock:hover, .water:hover, .ice:hover, .shadow:hover, .bug:hover .poison:hover, .grass:hover, .fighting:hover, .normal:hover{
+    
+    box-shadow: 1px 1px 15px rgb(0, 0, 0), 1px 1px 30px #B42B51;
+    
+}
+.tipos{
+    margin: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 2px;
+    color: #E63E6D;
+    font-weight: bolder;
+    background-color: transparent;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 10px;
+}
+.normal{
+    width: 100%;
+    height: 100%;
+    min-height: 300px; 
+    padding: 0px;
+    background-image: linear-gradient(to bottom,white,white, #420516);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 4px solid transparent; 
+    border-image: linear-gradient(to bottom, #54e4a8 0%, #4a7a64 100%) 1;
+}
+.fighting{
+    width: 100%;
+    height: 100%;
+    min-height: 300px; 
+    padding: 0px;
+    background-image: linear-gradient(to bottom,white,white, #420516);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 4px solid transparent; 
+    border-image: linear-gradient(to bottom, #ff0404 0%, #5d0491 100%) 1;
+}
+.grass{
+    width: 100%;
+    height: 100%;
+    min-height: 300px; 
+    padding: 0px;
+    background-image: linear-gradient(to bottom,white,white, #420516);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 4px solid transparent; 
+    border-image: linear-gradient(to bottom, #2bff00 0%, #8b7139 100%) 1;
+}
+.poison{
+    width: 100%;
+    height: 100%;
+    min-height: 300px; 
+    padding: 0px;
+    background-image: linear-gradient(to bottom,white,white, #420516);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 4px solid transparent; 
+    border-image: linear-gradient(to bottom, #c300ff 0%, #09ff00 100%) 1;
+}
+.fire{
+    width: 100%;
+    height: 100%;
+    min-height: 300px; 
+    padding: 0px;
+    background-image: linear-gradient(to bottom,white,white, #420516);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 4px solid transparent; 
+    border-image: linear-gradient(to bottom, #ff0000 0%, #fffb00 100%) 1;
+}
+.mixto{
+    width: 100%;
+    height: 100%;
+    min-height: 300px; 
+    padding: 0px;
+    background-image: linear-gradient(to bottom,white,white, #420516);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 4px solid #E63E6D; 
+    
+}
+.water{
+    width: 100%;
+    height: 100%;
+    min-height: 300px; 
+    padding: 0px;
+    background-image: linear-gradient(to bottom,white,white, #420516);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 4px solid transparent; 
+    border-image: linear-gradient(to bottom, #00d9ff 0%, #114ac4 100%) 1;
+}
+.flying{
+    width: 100%;
+    height: 100%;
+    min-height: 300px; 
+    padding: 0px;
+    background-image: linear-gradient(to bottom,white,white, #420516);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 4px solid transparent; 
+    border-image: linear-gradient(to bottom, #00373b 0%, #78e4e7 100%) 1;
+}
+.ground{
+    width: 100%;
+    height: 100%;
+    min-height: 300px; 
+    padding: 0px;
+    background-image: linear-gradient(to bottom,white,white, #420516);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 4px solid transparent; 
+    border-image: linear-gradient(to bottom, #8a4a20 0%, #fffb00 100%) 1;
+}
+.rock{
+    width: 100%;
+    height: 100%;
+    min-height: 300px; 
+    padding: 0px;
+    background-image: linear-gradient(to bottom,white,white, #420516);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 4px solid transparent; 
+    border-image: linear-gradient(to bottom, #1eff00 0%, #4d4026 100%) 1;
+}
+.bug{
+    width: 100%;
+    height: 100%;
+    min-height: 300px; 
+    padding: 0px;
+    background-image: linear-gradient(to bottom,white,white, #420516);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 4px solid transparent; 
+    border-image: linear-gradient(to bottom, #00ff00 0%, rgb(58, 206, 255) 100%) 1;
+}
+.steel{
+    width: 100%;
+    height: 100%;
+    min-height: 300px; 
+    padding: 0px;
+    background-image: linear-gradient(to bottom,white,white, #420516);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 4px solid transparent; 
+    border-image: linear-gradient(to bottom, #1a1a1a 0%, rgb(14, 39, 48) 100%) 1;
+}
+.ghost{
+    width: 100%;
+    height: 100%;
+    min-height: 300px; 
+    padding: 0px;
+    background-image: linear-gradient(to bottom,white,white, #420516);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 4px solid transparent; 
+    border-image: linear-gradient(to bottom, #444644 0%, rgb(217, 225, 228) 100%) 1;
+}
+.electric{
+    width: 100%;
+    height: 100%;
+    min-height: 300px; 
+    padding: 0px;
+    background-image: linear-gradient(to bottom,white,white, #420516);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 4px solid transparent; 
+    border-image: linear-gradient(to bottom, #e5ff00 0%, rgb(0, 248, 215) 100%) 1;
+}
+.psychic{
+    width: 100%;
+    height: 100%;
+    min-height: 300px; 
+    padding: 0px;
+    background-image: linear-gradient(to bottom,white,white, #420516);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 4px solid transparent; 
+    border-image: linear-gradient(to bottom, #97c797 0%, rgb(11, 184, 63) 100%) 1;
+}
+.ice{
+    width: 100%;
+    height: 100%;
+    min-height: 300px; 
+    padding: 0px;
+    background-image: linear-gradient(to bottom,white,white, #420516);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 4px solid transparent; 
+    border-image: linear-gradient(to bottom, #00f5fd 0%, rgb(143, 148, 150) 100%) 1;
+}
+.dragon{
+    width: 100%;
+    height: 100%;
+    min-height: 300px; 
+    padding: 0px;
+    background-image: linear-gradient(to bottom,white,white, #420516);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 4px solid transparent; 
+    border-image: linear-gradient(to bottom, #ff9100 0%, rgb(66, 22, 226) 100%) 1;
+}
+.dark{
+    width: 100%;
+    height: 100%;
+    min-height: 300px; 
+    padding: 0px;
+    background-image: linear-gradient(to bottom,white,white, #420516);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 4px solid transparent; 
+    border-image: linear-gradient(to bottom, #1d1d1d 0%, rgb(0, 0, 0) 100%) 1;
+}
+.fairy{
+    width: 100%;
+    height: 100%;
+    min-height: 300px; 
+    padding: 0px;
+    background-image: linear-gradient(to bottom,white,white, #420516);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 4px solid transparent; 
+    border-image: linear-gradient(to bottom, #d979ff 0%, rgb(233, 17, 197) 100%) 1;
+}
+.unknown{
+    width: 100%;
+    height: 100%;
+    min-height: 300px; 
+    padding: 0px;
+    background-image: linear-gradient(to bottom,white,white, #420516);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 4px solid transparent; 
+    border-image: linear-gradient(to bottom, #555555 0%, rgb(41, 54, 58) 100%) 1;
+}
+.shadow{
+    width: 100%;
+    height: 100%;
+    min-height: 300px; 
+    padding: 0px;
+    background-image: linear-gradient(to bottom,white,white, #420516);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border: 4px solid transparent; 
+    border-image: linear-gradient(to bottom, #222422 0%, rgb(228, 50, 65) 100%) 1;
+}

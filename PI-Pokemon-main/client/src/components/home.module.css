@@ -1,0 +1,104 @@
+.nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    opacity: 0.9;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bolder;
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(to right,white 0%, #E63E6D 100%) 1;
+}
+.linkHome{
+    color: #E63E6D;
+    text-decoration: none;
+    padding: 30px 50px 30px 50px;
+  
+}
+.linkHome:hover{
+    background-color: #420516;
+    text-decoration: underline;
+}
+.linkCrearPokemon{
+    display: block;
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+.crearPokemon{
+    padding: 15px 300px 15px 300px;
+    border: 2px solid #E63E6D;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #E63E6D;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bolder;
+    font-size: 17px;
+    margin-top: 50px;
+}
+.crearPokemon:hover{
+    background-color: rgba(0, 0, 0, 0.7);
+    text-shadow: 1px 1px 10px #000000, 1px 1px 25px #000000;
+    cursor: pointer;
+    box-shadow: 1px 1px 10px #E63E6D, 1px 1px 25px #E63E6D;
+}
+.conteiner{
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #E63E6D;
+    font-family: 'Nunito', sans-serif;
+    color: #E63E6D;
+}
+.filtrosConteiner{
+    padding: 10px 150px 10px 150px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-bottom: 1px solid #E63E6D;
+}
+.ordenConteiner{
+    padding: 20px 150px 20px 150px;
+    display: flex;
+    justify-content: space-around;
+}
+.btn{
+    font-family: 'Nunito', sans-serif;
+    color: #E63E6D;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px 30px 10px 30px;
+    border: 2px solid #E63E6D;
+}
+.btn:hover{
+    background-color: rgba(0, 0, 0, 0);
+    text-shadow: 1px 1px 10px #000000, 1px 1px 25px #000000;
+    cursor: pointer;
+    box-shadow: 1px 1px 10px #E63E6D, 1px 1px 25px #E63E6D;
+}
+.noEncontrados{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: max-content;
+    margin-top: 15px;
+    font-family: 'Nunito', sans-serif;
+    color: #ff0000;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 10px 30px 10px 30px;
+    border: 2px solid #ff0000;
+    box-shadow: 1px 1px 10px #ff0000, 1px 1px 25px #ff0000;
+}
+select{
+    text-align: center;
+    width: 150px;
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: none;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+}
+
+option{
+    background-color: black;
+}
+
+

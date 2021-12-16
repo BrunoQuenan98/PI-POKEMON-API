@@ -1,0 +1,28 @@
+.buscador{
+    outline: none;
+    padding: 10px;
+    border: 1px solid #E63E6D;
+    border-right: none;
+    background-color: transparent;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+}
+.buscador:focus{
+    box-shadow: 1px 1px 10px #E63E6D, 1px 1px 25px #E63E6D;
+}
+.btn:disabled{
+    background-color: rgb(121, 121, 121);
+    cursor: not-allowed;
+    box-shadow: none;
+}
+.btn{
+    padding: 10px 20px 10px 20px;
+    border: 1px solid #E63E6D;
+    outline: none;
+    font-family: 'Nunito', sans-serif;
+    color: #E63E6D;
+    background-color: transparent;
+    box-shadow: 1px 1px 10px #E63E6D, 1px 1px 25px #E63E6D;
+    font-weight: bolder;
+    cursor: pointer;
+}

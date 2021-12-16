@@ -74,16 +74,16 @@ export function rootReducer(state = initialState, action){
             return{
                 ...state,
                 pokemonesFilteredType : pokemonesByType,
-                pokemonesFiltered : state.pokemonesFilteredOrigin.length ? joinFilters : pokemonesByType,
+                pokemonesFiltered : state.pokemonesFilteredOrigin.length && pokemonesByType.length ? joinFilters : [],
             }
         case FILTER_POKEMON_ORIGIN:
             let pokemonesByOrigin = action.payload === 'api' ? state.pokemones.filter(pokemon => Number.isInteger(Number(pokemon.id))) : state.pokemones.filter(pokemon => !Number.isInteger(Number(pokemon.id)));
             pokemonesByOrigin = action.payload === 'todos' ? state.pokemones : pokemonesByOrigin;
             let joinFilterss = [];
             if(state.pokemonesFilteredType.length > 0){
-                for (let i = 0; i < state.pokemonesFilteredOrigin.length; i++) {
+                for (let i = 0; i < state.pokemonesFilteredType.length; i++) {
                     for (let j = 0; j < pokemonesByOrigin.length; j++) {
-                        if(state.pokemonesFilteredOrigin[i] === pokemonesByOrigin[j]){
+                        if(state.pokemonesFilteredType[i] === pokemonesByOrigin[j]){
                             joinFilterss.push(pokemonesByOrigin[j])
                             break
                         }
@@ -93,7 +93,7 @@ export function rootReducer(state = initialState, action){
             return{
                 ...state,
                 pokemonesFilteredOrigin : pokemonesByOrigin,
-                pokemonesFiltered : state.pokemonesFilteredType.length ? joinFilterss : pokemonesByOrigin,
+                pokemonesFiltered : state.pokemonesFilteredType.length && pokemonesByOrigin.length ? joinFilterss : [],
             }
         case ORDER_BY_NAME:
            
