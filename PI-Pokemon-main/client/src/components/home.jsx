@@ -135,7 +135,7 @@ export const Home = () =>{
         <form onSubmit={(e) => handleFilter(e)} className={s.filtrosConteiner}>
             <div>
         <label>Filtrar por Origen:</label>
-        <select name="origen" id="origen" className={s.select}>
+        <select className={s.select} name="origen" id="origen">
             <option value='todos' className={s.option}>Todos</option>
             <option value='api' className={s.option}>Pokemones API</option>
             <option value='bd' className={s.option}>Pokemones BD</option>
@@ -143,7 +143,7 @@ export const Home = () =>{
         </div>
         <div>
         <label>Filtrar por Tipo:</label>
-        <select name="type" id="type">
+        <select className={s.select} name="type" id="type">
             <option value='todosTipo'>Todos</option>
             {types?.map(tipo => <option value={tipo.name} key={tipo.id}>{tipo.name}</option>)}
         </select>
@@ -153,14 +153,14 @@ export const Home = () =>{
         <div className={s.ordenConteiner}>
             <div>
                 <label>Ordenar por Fuerza:</label>
-                <select name="fuerza" id="fuerza" onChange={(e) => handleOrderStrength(e)}>
+                <select className={s.select} name="fuerza" id="fuerza" onChange={(e) => handleOrderStrength(e)}>
                     <option value='asc'>Ascendente</option>
                     <option value='dsc'>Descendente</option>
                 </select>
             </div>
             <div>
                 <label>Ordenar por Nombre:</label>
-                <select name="nombre" id="nombre" onChange={(e) => handleOrderName(e)}>
+                <select className={s.select} name="nombre" id="nombre" onChange={(e) => handleOrderName(e)}>
                     <option value='asc'>Ascendente</option>
                     <option value='dsc'>Descendente</option>
                 </select>

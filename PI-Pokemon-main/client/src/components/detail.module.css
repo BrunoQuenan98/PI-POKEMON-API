@@ -1,0 +1,92 @@
+.conteiner{
+    background-color: white;
+    width: 1000px;
+    margin: 0 auto;
+    margin-top: 60px;
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    border-radius: 30px;
+    box-shadow: 1px 1px 10px #17D7A0 
+}
+.titulo{
+    margin: 10px 30px 10px 30px;
+    padding: 10px 0px 10px 0px;
+    text-transform: capitalize;
+    color: #AAD8D3;
+}
+.home{
+    display: flex;
+    align-items: flex-start;
+    
+}
+.exit{
+    color: #17D7A0;
+    font-weight: bolder;
+    text-decoration: none;
+   
+}
+.exit:hover{
+    color: #9beebb;
+}
+.subtitulos{
+    background-image: linear-gradient(to right, #9beebb, #17D7A0);
+    padding: 5px 15px 5px 15px;
+    color: white;
+    font-weight: lighter;
+    border-radius: 30px;
+}
+.imgTitulo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+}
+.cardConteiner{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.statsConteiner{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.statFlex{
+    margin: 10px 10px 10px 10px;
+}
+.stat{
+    margin: 0px;
+    padding: 4px 20px 4px 20px;
+    text-transform: capitalize;
+    color: #AAD8D3;
+}
+.value{
+    font-weight: bolder;
+    color: #17D7A0;
+    font-size: 15px;
+}
+.dimensionsConteiner{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.tiposConteiner{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.tipoUnique{
+    display: grid;
+    grid-template-columns: auto;
+}
+.tipo{
+    margin: 0px;
+    padding: 4px 20px 4px 20px;
+    text-transform: capitalize;
+    font-weight: bolder;
+    color: #17D7A0;
+    font-size: 15px;
+}
+.img{
+    max-width: 400px;
+}

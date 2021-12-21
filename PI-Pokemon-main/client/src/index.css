@@ -2,9 +2,6 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #420516;
-  background-image: url(https://upload.wikimedia.org/wikipedia/commons/5/51/Pokebola-pokeball-png-0.png);
-  background-repeat: repeat;
-  background-size: 100px;
+  background-color: #EEEEEE;
 }
 

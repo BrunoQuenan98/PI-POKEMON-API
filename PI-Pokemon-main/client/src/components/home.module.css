@@ -2,22 +2,31 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: black;
+    background-color: white;
     opacity: 0.9;
     font-family: 'Nunito', sans-serif;
     font-weight: bolder;
-    border-bottom: 2px solid transparent;
-    border-image: linear-gradient(to right,white 0%, #E63E6D 100%) 1;
+    border-bottom: 1px solid transparent;
+    border-image: linear-gradient(to right,#e4f0e9, #AAD8D3) 1;
+}
+.conteiner{
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Nunito', sans-serif;
+    color: #17D7A0;
+    font-weight: bolder;
 }
 .linkHome{
-    color: #E63E6D;
+    color: #17D7A0;
+    text-transform: uppercase;
     text-decoration: none;
-    padding: 30px 50px 30px 50px;
-  
+    padding: 20px 50px 20px 50px;
+
 }
 .linkHome:hover{
-    background-color: #420516;
-    text-decoration: underline;
+    cursor: pointer;
+    background-color: #EEEEEE;
 }
 .linkCrearPokemon{
     display: block;
@@ -27,52 +36,50 @@
 }
 .crearPokemon{
     padding: 15px 300px 15px 300px;
-    border: 2px solid #E63E6D;
-    background-color: rgba(0, 0, 0, 0.9);
-    color: #E63E6D;
+    border: 1px solid #17D7A0;
+    border-radius: 30px;
+    background-color: white;
+    color: #17D7A0;
     font-family: 'Nunito', sans-serif;
     font-weight: bolder;
     font-size: 17px;
     margin-top: 50px;
+    box-shadow: 1px 1px 10px #17D7A0;
 }
 .crearPokemon:hover{
-    background-color: rgba(0, 0, 0, 0.7);
-    text-shadow: 1px 1px 10px #000000, 1px 1px 25px #000000;
+    background-color: transparent;
     cursor: pointer;
-    box-shadow: 1px 1px 10px #E63E6D, 1px 1px 25px #E63E6D;
 }
-.conteiner{
-    background-color: rgba(0, 0, 0, 0.9);
-    display: flex;
-    flex-direction: column;
-    border-bottom: 1px solid #E63E6D;
-    font-family: 'Nunito', sans-serif;
-    color: #E63E6D;
-}
+
 .filtrosConteiner{
     padding: 10px 150px 10px 150px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    border-bottom: 1px solid #E63E6D;
+    border-bottom: 1px solid transparent;
+    border-image: linear-gradient(to right,#e4f0e9 0%, #AAD8D3 100%) 1;
 }
 .ordenConteiner{
     padding: 20px 150px 20px 150px;
     display: flex;
     justify-content: space-around;
+    border-bottom: 2px solid transparent;
+    border-image: linear-gradient(to right,#e4f0e9 0%, #AAD8D3 100%) 1;
 }
 .btn{
     font-family: 'Nunito', sans-serif;
-    color: #E63E6D;
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 10px 30px 10px 30px;
-    border: 2px solid #E63E6D;
+    font-weight: bolder;
+    color: #17D7A0;
+    background-color: white;
+    padding: 10px 50px 10px 50px;
+    border: 1px solid #17D7A0;
+    border-radius: 30px;
+    box-shadow: 1px 1px 10px #17D7A0;
 }
 .btn:hover{
-    background-color: rgba(0, 0, 0, 0);
-    text-shadow: 1px 1px 10px #000000, 1px 1px 25px #000000;
     cursor: pointer;
-    box-shadow: 1px 1px 10px #E63E6D, 1px 1px 25px #E63E6D;
+    background-color: #EEEEEE;
+    
 }
 .noEncontrados{
     display: block;
@@ -81,24 +88,29 @@
     width: max-content;
     margin-top: 15px;
     font-family: 'Nunito', sans-serif;
-    color: #ff0000;
-    background-color: rgba(0, 0, 0, 0.9);
+    color: #7a1515;
+    background-color: rgba(252, 231, 212, 0.9);
     padding: 10px 30px 10px 30px;
-    border: 2px solid #ff0000;
-    box-shadow: 1px 1px 10px #ff0000, 1px 1px 25px #ff0000;
+    border: 1px solid #ff0000;
+    border-radius: 30px;
 }
-select{
+.select{
+    padding: 2px 15px 2px 15px;
+    border-radius: 30px;
+    margin-left: 10px;
     text-align: center;
     width: 150px;
     outline: none;
-    background-color: rgba(0, 0, 0, 0.4);
-    border: none;
-    color: white;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #17D7A0;
+    color: rgb(0, 0, 0);
     font-family: 'Nunito', sans-serif;
+    font-weight: bolder;
 }
 
 option{
-    background-color: black;
+    background-color: rgb(255, 255, 255);
+    color: #17D7A0;
 }
 
 

@@ -1,25 +1,28 @@
+.conteiner{
+    background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/d9e6161a-962f-4986-a8e2-5ae6a53fd317/d4n85cg-2352b9f6-4f2e-4e93-a9da-7086574b37b7.png');
+    background-position:bottom;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .imgFondo{
-    width: auto;
-    height: auto;
-    max-width: 500px;
-    display: block;
-    margin-top: 10%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%; 
 }
 .btn{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
-    padding: 20px 200px 20px 200px;
-    background-color: rgb(238, 255, 0);
-    border: solid 4px rgb(2, 89, 250);
-    border-radius: 10px;
-    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+    background-color: rgb(255, 0, 0);
+    border-radius: 50%;
 }
 .btn:hover{
     transition: 1s;
-    color: rgb(250, 235, 29);
-    background-color: rgb(255, 242, 206);
+    background-color: #17D7A0;
+    box-shadow:  1px 1px 10px #17D7A0, 1px 1px 15px #17D7A0, 1px 1px 30px #17D7A0, 1px 1px 40px 
+    #17D7A0,
+    1px 1px 50px #17D7A0;
 }

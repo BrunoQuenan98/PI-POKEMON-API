@@ -1,0 +1,144 @@
+.titulo{
+    text-align: center;
+    width: 100%;
+    color: #AAD8D3;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #AAD8D3;
+}
+.formConteiner{
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 50px;
+    font-family: 'Nunito', sans-serif;
+    box-shadow: 1px 1px 10px #AAD8D3;
+    border-radius: 30px;
+}
+.label{
+   margin: 0 auto;
+   margin-top: 20px; 
+   margin-bottom: 5px;
+   color: #17D7A0;
+   font-weight: bolder;
+   font-size: 18px;
+}
+.input{
+    padding: 15px;
+    outline:none;
+    background-color: #EEEEEE;
+    border: 1px solid #17D7A0;
+    box-shadow: 1px 1px 10px #17D7A0;
+    border-radius: 30px;
+}
+.danger{
+    padding: 15px;
+    outline:none;
+    background-color: #EEEEEE;
+    border:1px solid red;
+    border-radius: 30px;
+    box-shadow: 1px 1px 10px red;
+}
+.spanError{
+    color: red;
+    font-weight: bolder;
+    font-size: 12px;
+    margin-left: 20px;
+}
+.inputSelect{
+    padding: 15px;
+    border-radius: 30px;
+    outline: none;
+    border: 1px solid #17D7A0;
+    box-shadow: 1px 1px 10px #17D7A0;
+    font-family: 'Nunito', sans-serif;
+    font-weight: bolder;
+}
+.dangerSelect{
+    padding: 15px;
+    border-radius: 30px;
+    outline: none;
+    border: 1px solid red;
+    box-shadow: 1px 1px 10px red;
+}
+.tipoSelected{
+    padding: 10px;
+    margin-top: 25px;
+    border-radius: 30px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    text-align: center;
+    grid-row-gap: 10px;
+    border: 1px solid #AAD8D3;
+}
+.tipo{
+    margin: 0 auto;
+    width: min-content;
+    padding: 5px 20px 5px 20px;
+    background-image: linear-gradient(to right, #9beebb, #17D7A0);
+    color: white;
+    border-radius: 30px;
+}
+.footer{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.opcionalInput{
+    padding: 15px;
+    outline:none;
+    background-color: #EEEEEE;
+    border: 1px solid #f17510;
+    box-shadow: 1px 1px 10px #f17510;
+    border-radius: 30px;
+}
+.opcional{
+    color: #f17510;
+    font-weight: bolder;
+    font-size: 12px;
+    margin-left: 20px;
+}
+.crearPokemon:disabled{
+    cursor: not-allowed;
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    border: 1px solid gray;
+    background-color: rgb(206, 206, 206); 
+}
+.hidden{
+    visibility: hidden;
+}
+.crearPokemon{
+    cursor: pointer;
+    padding: 15px 100px 15px 100px;
+    border-radius: 30px;
+    background-color: white;
+    border: 1px solid #17D7A0;
+    font-family:  'Nunito', sans-serif;
+    box-shadow: 1px 1px 10px #17D7A0;
+    color: #17D7A0;
+    font-weight: bolder;
+    font-size: 15px;
+}
+.crearPokemon:hover{
+   box-shadow: none; 
+}
+.home{
+    border-radius: 30px;
+    border: none;
+    padding: 15px 100px 15px 100px;
+    background-image: linear-gradient(to right, #9beebb, #17D7A0);
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+.home:hover{
+    background-image: none;
+    color: #17D7A0;
+    font-weight: bolder;
+    border: 1px solid #17D7A0;
+}

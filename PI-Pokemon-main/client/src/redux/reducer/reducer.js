@@ -148,7 +148,7 @@ export function rootReducer(state = initialState, action){
         case SEARCH_POKEMON:
             return{
                 ...state,
-                pokemonesSearch : [action.payload]
+                pokemonesSearch : action.payload
             }
         case CLEAN_SEARCH_POKEMON:
             return{

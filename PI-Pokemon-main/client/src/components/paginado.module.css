@@ -9,18 +9,18 @@
 }
 .btn{
     margin: 10px;
-    padding: 10px 20px 10px 20px;
-    border: 2px solid #E63E6D;
-    background-color: rgba(0, 0, 0, 0.9);
-    color: #E63E6D;
+    padding: 10px 30px 10px 30px;
+    border: 2px solid #17D7A0;
+    background-color: white;
+    color: #17D7A0;
     font-family: 'Nunito', sans-serif;
     font-weight: bolder;
+    border-radius: 30px;
 }
 .btn:focus{
-    background-color: rgba(0, 0, 0, 0.7);
-    text-shadow: 1px 1px 10px #000000, 1px 1px 25px #000000;
+    background-color: transparent;
     cursor: pointer;
-    box-shadow: 1px 1px 10px #E63E6D, 1px 1px 25px #E63E6D;
+    box-shadow: 1px 1px 8px #17D7A0;
     font-size: 20px;
 }
 .btn:hover{

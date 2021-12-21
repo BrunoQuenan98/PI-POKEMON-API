@@ -11,15 +11,15 @@ export const Card = (props) =>{
     console.log(clase);
     return(
         
-        <div className={s[clase]}>
+        <div className={s.card}>
             <div className={s.imgDiv}>
-            <img src={props.img} alt="img pokemon"/>
+            <img src={props.img} className={s.img} alt="img pokemon"/>
             </div>
             <div className={s.nameTypeCont}>
             <Link to={`/detail/${props.id}`} className={s.linkName}>
             <h1 className={s.name}>{name.join('')}</h1>
             </Link>
-            <div>
+            <div className={s.tiposConteiner}>
                 {props.type.map((tipo,i) => <span key={i} className={s.tipos}>{tipo}</span>)}
             </div>
             </div>

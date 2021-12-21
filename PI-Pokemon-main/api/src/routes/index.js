@@ -14,7 +14,7 @@ async function pokemonsApi(){
     let pokemones = PokemonsApi.data.results
     pokemones = await Promise.all(pokemones.map (async (pokemon) =>{
         let dataPokemon = await axios.get(`${pokemon.url}`);
-        let imgPokemon = await axios.get(`${dataPokemon.data.forms[0].url}`);
+        let imgPokemon = dataPokemon.data.sprites.other['dream_world'].front_default
         return {
             id: pokemon.url.split('/')[6],
             name : pokemon.name,
@@ -24,25 +24,18 @@ async function pokemonsApi(){
             velocidad :dataPokemon.data.stats[5].base_stat,
             altura :dataPokemon.data.height,
             peso :dataPokemon.data.weight,
-            img : imgPokemon.data.sprites.front_default,
+            img : imgPokemon,
             type :dataPokemon.data.types.map(tipo => tipo.type.name),
         }
     })
     )
-
     return pokemones;
     }catch(e){
         console.error(e);
     }
 }
-
-router.get('/pokemons', async (req, res)=>{
-    const { name } = req.query;
-
-    if(name){
-        try{
-        let pokemon = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
-        pokemon = {
+function objectPokemon(pokemon){
+    return {
             id: pokemon.data.id,
             name : pokemon.data.name,
             vida : pokemon.data.stats[0].base_stat,
@@ -51,12 +44,34 @@ router.get('/pokemons', async (req, res)=>{
             velocidad : pokemon.data.stats[5].base_stat,
             altura :pokemon.data.height,
             peso :pokemon.data.weight,
-            img : pokemon.data.sprites.front_default,
+            img : pokemon.data.sprites.other['dream_world'].front_default,
             type : pokemon.data.types.map(tipo => tipo.type.name),
-        }
-        return res.json(pokemon)
+            }
+}
+
+
+/*************************************************************/
+
+
+router.get('/pokemons', async (req, res)=>{
+    const { name } = req.query;
+    
+    if(name){
+      
+    try{
+        let pokemon = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`)
+        let pokemonBd = await Pokemon.findAll({where:{name: name.toLowerCase()},include: {
+            model: Tipo,
+           }})
+        if(pokemon.data && pokemonBd.length > 0) return res.json([objectPokemon(pokemon)].concat(pokemonBd))
+        if(pokemonBd.length > 0) return res.json(pokemonBd);
+        if(pokemon.data) return res.json([objectPokemon(pokemon)]);
     }catch(e){
-        return res.json('NOMBRE INVALIDO')
+        let pokemonBd = await Pokemon.findAll({where:{name: name.toLowerCase()},include: {
+            model: Tipo,
+           }})
+           if(pokemonBd.length > 0)return res.json(pokemonBd);
+           else return res.send('nombre no encontrado');
     }
         
     }else{
@@ -66,12 +81,7 @@ router.get('/pokemons', async (req, res)=>{
            }}));
         res.json(pokemones);   
     }
-
-
-   
-
-   // name?res.json(pokemones.filter(pokemon => pokemon.name == name)):res.json(pokemones)
-       
+  
 })
 
 router.get('/types', async(req,res) =>{
@@ -84,7 +94,7 @@ router.get('/types', async(req,res) =>{
          let tipe = await Tipo.create({name:tipo.name})
          return tipe;
     }));
-
+    console.log(typesApi);
     return res.json(typesApi);
     }catch(e){
         return res.status(400).json('ups algo ha sucedido mal');
@@ -97,9 +107,8 @@ router.get('/pokemons/:id', async(req, res) =>{
     if(id){
         let idInt = Number(id);
         if(Number.isInteger(idInt)){
-            let pokemones = await pokemonsApi();
-            let pokemon = pokemones.find(e => e.id == idInt)
-            if(pokemon) return res.json(pokemon)
+            let pokemon = await axios.get(`https://pokeapi.co/api/v2/pokemon/${id}`)
+            if(pokemon.data) return res.json(objectPokemon(pokemon));
         }else{
             let pokemon = await Pokemon.findByPk(id,{include: {
                 model: Tipo,
@@ -115,8 +124,8 @@ router.get('/pokemons/:id', async(req, res) =>{
 })
 
 router.post('/pokemons', async (req, res) =>{
-    const {name, vida, fuerza, defensa, velocidad, altura, peso, img, types} = req.body
-
+    let {name, vida, fuerza, defensa, velocidad, altura, peso, img, types} = req.body
+    if(!img) img = 'https://cdn-icons-png.flaticon.com/512/634/634741.png'
     console.log(req.body);
     try{
     if(name&&vida&&fuerza&&defensa&&velocidad&&altura&&peso&&img&&types){
@@ -127,7 +136,7 @@ router.post('/pokemons', async (req, res) =>{
             var [tipo, creada] = await Tipo.findOrCreate({where:{name: types}})
         }
         let pokemon = await Pokemon.create({
-            name, 
+            name: name.toLowerCase(), 
             vida, 
             fuerza, 
             defensa, 

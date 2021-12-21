@@ -20,6 +20,7 @@ export function cleanSearchPokemon(){
 export function searchPokemon(payload){
     return async function(dispatch){
         let json = await axios.get(`http://localhost:3001/pokemons?name=${payload}`)
+        console.log(json.data);
         return dispatch({
             type: SEARCH_POKEMON,
             payload: json.data
